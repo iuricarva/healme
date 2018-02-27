@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <f:view contentType="text/html">
+        <h:head>
+            <f:facet name="first">
+                <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <title>HEAL-ME</title>
+            </f:facet>
+        </h:head>
+
+        <h:body style="padding: 0px; margin-top: 0px; margin-left: 0px; margin-right: 0px">
+            
+            <div style="background-color: lightgray; height: 30%; position: relative; float: none; border: solid; border-width: 1px; border-color: lightgray">
+                <div style="position: relative; float: contour; padding: 10px">
+                    <h1><font color="white" style="text-shadow: 1px 0px 0px black, -1px 0px 0px black, 0px 1px 0px black, 0px -1px 0px black;">  HEAL-ME</font></h1>
+                </div>
+            </div>
+                
+
+            <div style="background-color: lightgray; position: relative; float: left; border: solid; border-width: 1px; border-color: lightgray; width: 17.1%; height: 675px">
+                <p:menu>
+                    <p:submenu label="Registrations">
+                        <p:menuitem value="Platforms" outcome="teste" />
+                    </p:submenu>
+                    <p:submenu label="Return">
+                        <p:menuitem value="Index Page" outcome="index" />
+                    </p:submenu>
+                </p:menu>
+            </div>                           
+
+            <div style="position: relative; float: left; width: 82.6%;  border: solid; border-width: 1px; border-color: lightgray; height: 675px">
+                <h2 align="center">Parameters of the Analysis</h2>
+                <hr/>
+                <p:ajaxStatus onstart="PF('statusDialog').show()" onsuccess="PF('statusDialog').hide()" />
+                <p:dialog widgetVar="statusDialog" modal="true" draggable="false" closable="false" resizable="false" showHeader="false">
+                    <p:graphicImage value="/images/loader.gif" />
+                </p:dialog>
+                <h:form>
+                    <p:panelGrid columns="4">
+                        <p:outputLabel for="id" value="Platform Name:" />
+                        <p:inputText id="id" value="#{consultaCert.namePlatform}" />
+                        
+                       <!-- <p:outputLabel for="campo1" value="Number of active developers:" />
+                        <p:inputText id="campo1" value="" />
+                                                
+                        <p:outputLabel for="campo2" value="Bug Fix Time:" />
+                        <p:inputText id="campo2" value="" />
+
+                        <p:outputLabel for="campo3" value="Number of Developer Commits:" />
+                        <p:inputText id="campo3" value="" />
+                        
+                        <p:outputLabel for="campo4" value="Developer Hours Worked:" />
+                        <p:inputText id="campo4" value="" />
+                        
+                        <p:outputLabel for="campo5" value="Plan for Collapse:" />
+                        <p:inputText id="campo5" value="" />
+                        
+                        <p:outputLabel for="campo6" value="Documentation:" />
+                        <p:inputText id="campo6" value="" />
+                        
+                        <p:outputLabel for="campo7" value="Number of Downloads:" />
+                        <p:inputText id="campo7" value="" />
+                                                                  
+                        <p:outputLabel for="campo8" value="Number of Modificated Files:" />
+                        <p:inputText id="campo8" value="" />
+                        
+                        <p:outputLabel for="campo9" value="Number of Passive Users:" />
+                        <p:inputText id="campo9" value="" />
+                        
+                        <p:outputLabel for="campo10" value="Number of Readers:" />
+                        <p:inputText id="campo10" value="" />
+                        
+                        <p:outputLabel for="campo11" value="Number of Releases:" />
+                        <p:inputText id="campo11" value="" />
+                        
+                        <p:outputLabel for="campo12" value="Number of Scientific Publications:" />
+                        <p:inputText id="campo12" value="" />
+                        
+                        <p:outputLabel for="campo1" value="Social Media Hits:" />
+                        <p:inputText id="campo1" value="" />
+                        
+                        <p:outputLabel for="campo2" value="Number of Users:" />
+                        <p:inputText id="campo2" value="" />
+                        
+                        <p:outputLabel for="campo3" value="Number of Users Groups:" />
+                        <p:inputText id="campo3" value="" />
+                                                                      
+                        <p:outputLabel for="campo2" value="Support Natural Languages:" />
+                        <p:inputText id="campo2" value="" />
+                        
+                        <p:outputLabel for="campo3" value="Community Time Work Together:" />
+                        <p:inputText id="campo3" value="" />
+                        
+                        <p:outputLabel for="campo1" value="Total Mensages Transmitted:" />
+                        <p:inputText id="campo1" value="" />
+                        
+                        <p:outputLabel for="campo2" value="Parameter Date:" />
+                        <p:inputText id="campo2" value="" />-->
+                        
+                        <p:commandButton  value="Analysis" action="analysisPage" onclick="this.form.target='_self'"/>
+                              
+                    </p:panelGrid>
+                </h:form>
+            </div>        
+        </h:body>
+
+    </f:view>
+</html>
+
