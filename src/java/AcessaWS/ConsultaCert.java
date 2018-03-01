@@ -34,6 +34,7 @@ public class ConsultaCert {
     private PlatformModel model;
     private ArrayList<PlatformModel> loadSustainability = new ArrayList<PlatformModel>();
     private ArrayList<PlatformModel> loadHealth = new ArrayList<PlatformModel>();
+    private final List<String> platforms = new ArrayList<String>();
 
     public String getNamePlatform() {
         return this.namePlatform;
@@ -51,8 +52,53 @@ public class ConsultaCert {
         //return this.loadHealth.size();
         return 20;
     }
+ 
     
-    
+   
+    public String[] getPlatforms() throws ParserConfigurationException, SAXException{
+        try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getplatforms");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                for(int i = 0; i<nodes.getLength(); i++){
+                    this.platforms.add(nodes.item(i).getNodeValue());
+                }
+                String[] a = new String[this.platforms.size()];
+                return this.platforms.toArray((String[]) a);
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
     
     public PlatformModel getRetornaSust() throws ParserConfigurationException, SAXException{
        try {    

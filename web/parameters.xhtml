@@ -42,8 +42,11 @@
                 </p:dialog>
                 <h:form>
                     <p:panelGrid columns="4">
-                        <p:outputLabel for="id" value="Platform Name:" />
-                        <p:inputText id="id" value="#{consultaCert.namePlatform}" />
+                        <h:outputLabel for="menu" value="Platform:" />
+                        <p:selectCheckboxMenu id="menu"  value="#{consultaCert.platforms}" label="Platforms" panelStyle="width:250px">
+                              <f:selectItems value="#{consultaCert.platforms}" />
+                        </p:selectCheckboxMenu>
+                     
                         
                        <!-- <p:outputLabel for="campo1" value="Number of active developers:" />
                         <p:inputText id="campo1" value="" />

@@ -49,35 +49,35 @@
                     <br/>
                     Result of heterogeneity analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaHet != null}" value="Defined."> </h:outputText>
                     <br/>
-                    <p:progressBar value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <br/>
                     <hr/>
                     <h4>Regeneration Ability</h4>
                     <br/>
                     Result of Regeneration Ability analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaRegAb != null}" value="Defined."> </h:outputText>
-                    <p:progressBar value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <br/>
                     <hr/>
                     <h4>Effort Balance</h4>
                     <br/>
                     Result of Effort Balance analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaEfBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <hr/>
                     <h4>Expertise Balance</h4>
                     Result of Expertise Balance analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaExpBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
                     <hr/>
                     <h4>Visivility</h4>
                     Result of Visivility analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaVisib != null}" value="Defined."> </h:outputText>
-                    <p:progressBar value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <hr/>
                     <h3>General Sustainability Overview:</h3>
                     Result of Sustainability analysis: <h:outputText id="nome" rendered="#{consultaCert.loadSustainability != null}" value="Defined."> </h:outputText>
-                    <p:progressBar style="color: green" value="#{consultaCert.loadHealth}" labelTemplate="{value}%" displayOnly="true"/>
+                    <p:progressBar id="healthBar" style="color: green" value="#{consultaCert.loadHealth}" labelTemplate="{value}%" displayOnly="true"/>
                     <hr/>
 <!--Diversidade-->
                     <!--<h2>Diversity Analisis</h2>
