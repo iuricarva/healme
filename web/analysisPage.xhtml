@@ -23,7 +23,7 @@
             <div style="background-color: lightgray; position: relative; float: left; border: solid; border-width: 1px; border-color: lightgray; width: 17.1%; height: 675px">
                 <p:menu>
                 <p:submenu label="Registrations">
-                                <p:menuitem value="Platforms" outcome="teste" />
+                                <p:menuitem value="Platforms" outcome="registration" />
                             </p:submenu>
                              <p:submenu label="Return">
                                 <p:menuitem value="Parameter of Analisis" outcome="parameters" />
@@ -47,131 +47,90 @@
                     <hr/>
                     <h4>Heterogeinity</h4>
                     <br/>
-                    Result of heterogeneity analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaHet != null}" value="Defined."> </h:outputText>
+                    Result of heterogeneity analysis: <h:outputText id="heterogeneity" rendered="#{consultaCert.retornaHet != null}" value="Defined."> </h:outputText>
                     <br/>
-                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
+                    <p:progressBar id="hetBar" styleClass="animated" global="false" ajax="true" value="20" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <br/>
                     <hr/>
                     <h4>Regeneration Ability</h4>
                     <br/>
-                    Result of Regeneration Ability analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaRegAb != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
+                    Result of Regeneration Ability analysis: <h:outputText id="RegAb" rendered="#{consultaCert.retornaRegAb != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="regAbBar" styleClass="animated" global="false" ajax="true" value="40" labelTemplate="{value}%" displayOnly="false"/>        
                     <br/>
                     <br/>
                     <hr/>
                     <h4>Effort Balance</h4>
                     <br/>
-                    Result of Effort Balance analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaEfBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
+                    Result of Effort Balance analysis: <h:outputText id="effBal" rendered="#{consultaCert.retornaEfBal != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="effBalBar" styleClass="animated" global="false" ajax="true" value="60" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <hr/>
                     <h4>Expertise Balance</h4>
-                    Result of Expertise Balance analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaExpBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
+                    Result of Expertise Balance analysis: <h:outputText id="expBal" rendered="#{consultaCert.retornaExpBal != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="expBalBar" styleClass="animated" global="false" ajax="true" value="80" labelTemplate="{value}%" displayOnly="false"/>
                     <hr/>
                     <h4>Visivility</h4>
-                    Result of Visivility analysis: <h:outputText id="nome" rendered="#{consultaCert.retornaVisib != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="sustBar" styleClass="animated" global="false" ajax="true" value="#{consultaCert.loadSustainability}" labelTemplate="{value}%" displayOnly="false"/>
+                    Result of Visivility analysis: <h:outputText id="vis" rendered="#{consultaCert.retornaVisib != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="VisBar" styleClass="animated" global="false" ajax="true" value="100" labelTemplate="{value}%" displayOnly="false"/>
                     <br/>
                     <hr/>
                     <h3>General Sustainability Overview:</h3>
-                    Result of Sustainability analysis: <h:outputText id="nome" rendered="#{consultaCert.loadSustainability != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar" style="color: green" value="#{consultaCert.loadHealth}" labelTemplate="{value}%" displayOnly="true"/>
+                    Result of Sustainability analysis: <h:outputText id="sust" rendered="#{consultaCert.loadSustainability != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar1" style="color: lightblue" value="20" labelTemplate="{value}%" displayOnly="true"/>
                     <hr/>
 <!--Diversidade-->
-                    <!--<h2>Diversity Analisis</h2>
+                    <h2>Diversity Analisis</h2>
                     <br/>
-                    Number of Group Users: <h:outputText id="nome" value="#{consultaCert.retornaDiversity.numberOfUsersGroups}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Have different developers? <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.nameDeveloper1 != consultaCert.retornaDiversity.nameDeveloper2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.nameDeveloper1 == consultaCert.retornaDiversity.nameDeveloper2}" value="No."> </h:outputText>
+                     Result of Diversity analysis: <h:outputText id="div" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="divBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <br/>
-                    Is supported by different hardware? <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.nameHardwareSupport1 != consultaCert.retornaDiversity.nameHardwareSupport2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.nameHardwareSupport1 == consultaCert.retornaDiversity.nameHardwareSupport2}" value="No."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Support different technologies? <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.techName1 != consultaCert.retornaDiversity.techName2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity.techName1 == consultaCert.retornaDiversity.techName2}" value="No."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Have plan for collapse? <h:outputText id="nome" value="#{consultaCert.retornaDiversity.planForCollapse}."> </h:outputText>
                     <h3>General Diversity Overview:</h3>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity != null}" value="The data confirms the presence of this health dimension."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaDiversity == null}" value="Health dimension not defined."> </h:outputText>
+                    Result of General Diversity analysis: <h:outputText id="generalDiv" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar2" style="color: lightblue" value="40" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <hr/>
-Produtividade-->
-                     <!--<h2>Productivity Analisis</h2>
+<!--Produtividade-->
+                    <h2>Productivity Analisis</h2>
                     <br/>
-                    Average time use of SECO (in hours per day): <h:outputText id="nome" value="#{consultaCert.retornaProductivity.averageTimeUse}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Average bug fix time (in hours): <h:outputText id="nome" value="#{consultaCert.retornaProductivity.bugFixTime}."> </h:outputText>
+                    Result of Productivity analysis: <h:outputText id="produc" rendered="#{consultaCert.retornaProductivity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="prodBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <br/>
-                    Name of last event: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.eventName}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Date of occurred last event: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.occurredDate}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Last file produced: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.fileName}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Last file creation date: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.creationData}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Number of KLOC added: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.KLOC}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Name of last member included: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.newMemberName}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Number of exchanged messages per month: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.numMessages}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Number of active users: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.numberOfUser}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Name of last project started: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.projectName}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Start date of the last project: <h:outputText id="nome" value="#{consultaCert.retornaProductivity.starData}."> </h:outputText>
                     <h3>General Productivity Overview:</h3>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaProductivity != null}" value="The data confirms the presence of this health dimension."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaProductivity == null}" value="Health dimension not defined."> </h:outputText>
+                    Result of General Productivity analysis: <h:outputText id="generalProd" rendered="#{consultaCert.retornaProductivity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar3" style="color: lightblue" value="60" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <hr/>
-Criação de Nicho-->
-                    <!--<h2>Niche Creation Analisis</h2>
+<!--Robustez-->
+                    <h2>Robustness Analisis</h2>
                     <br/>
-                    Support different technologies? <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.techName1 != consultaCert.retornaNicheCreation.techName2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.techName1 == consultaCert.retornaNicheCreation.techName2}" value="No."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Support different development technologies? <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.nameDevTech1 != consultaCert.retornaNicheCreation.nameDevTech2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.nameDevTech1 == consultaCert.retornaNicheCreation.nameDevTech2}" value="No."> </h:outputText>
+                     Result of Robustness analysis: <h:outputText id="rob" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="robBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <br/>
-                    Support different applications? <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.nameSupport1 != consultaCert.retornaNicheCreation.nameSupport2}" value="Yes."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation.nameSupport1 == consultaCert.retornaNicheCreation.nameSupport2}" value="No."> </h:outputText>
+                    <h3>General Robustness Overview:</h3>
+                    Result of General Robustness analysis: <h:outputText id="generalRob" rendered="#{consultaCert != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar4" style="color: lightblue" value="80" labelTemplate="{value}%" displayOnly="true"/>
+                    <br/>
+                    <hr/>
+<!--Criação de Nicho-->
+                    <h2>Niche Creation Analisis</h2>
+                    <br/>
+                    Niche Creation Analisis: <h:outputText id="ncAnalisis" rendered="#{consultaCert.retornaNicheCreation != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="ncBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <br/>
-                    Support natural languages? <h:outputText id="nome" value="#{consultaCert.retornaNicheCreation.supportNaturalLanguages}."> </h:outputText>
-                    <br/>
-                    <br/>
-                    Have documentation? <h:outputText id="nome" value="#{consultaCert.retornaNicheCreation.haveDocumentation}."> </h:outputText>
                     <h3>General Niche Creation Overview:</h3>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation != null}" value="The data confirms the presence of this health dimension."> </h:outputText>
-                    <h:outputText id="nome" rendered="#{consultaCert.retornaNicheCreation == null}" value="Health dimension not defined."> </h:outputText>
+                    Result of General Niche Creation analysis: <h:outputText id="generalDiv" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar5" style="color: lightblue" value="100" labelTemplate="{value}%" displayOnly="true"/>
                     <br/>
                     <hr/>
- Panorama Geral-->
-                    <!--<h2>General Health Overview:</h2>
-                    <h:outputText id="nome" value="#{consultaCert.retornaHeatlh}"> </h:outputText>-->
+ <!--Panorama Geral-->
+                    <h2>General Health Overview:</h2>
+                    Health <h:outputText id="genHealth" rendered="#{consultaCert.retornaHeatlh != null}" value="Defined."> </h:outputText>
+                    <p:progressBar id="healthBar6" style="color: lightblue" value="100" labelTemplate="{value}%" displayOnly="true"/>
                 </div>    
             </div>        
         </h:body>
