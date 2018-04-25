@@ -14,69 +14,44 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement
 public class PlatformModel {
     private String name;
-    private int KLOC;
-    private String fileName;
-    private String creationData;
-    private int numMessages;
-    private String projectName;
-    private String starData;
-    private int bugFixTime;
-    private int numberOfUser;
-    private int averageTimeUse;
-    private String newMemberName;
-    private String eventName;
-    private String occurredDate;
-    private String nameHardwareSupport1;
-    private String nameHardwareSupport2;
-    private int numberOfUsersGroups;
-    private String nameDeveloper1;
-    private String nameDeveloper2;
-    private String techName1;
-    private String techName2;
-    private String planForCollapse;
-    private String nameSupport1;
-    private String nameSupport2;
-    private String supportNaturalLanguages;
-    private String nameDevTech1;
-    private String nameDevTech2;
-    private String nameNode1;
-    private String nameNode2;
+    private int numberOfCountries;
+    private int semanticClosenessAvg;
+    private int numberOfNodeTypes;
     private int timeWorkTogether;
+    private int numberOfNewMembers;
     private int developerCommits;
-    private int developerHoursWork;
-    private int numberOfReleases;
-    private boolean activeDeveloper;
+    private int numberOfHoursWorked;
 
-    public int getDeveloperCommits() {
-        return developerCommits;
+    public String getName() {
+        return name;
     }
 
-    public void setDeveloperCommits(int developerCommits) {
-        this.developerCommits = developerCommits;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public int getDeveloperHoursWork() {
-        return developerHoursWork;
+    public int getNumberOfCountries() {
+        return numberOfCountries;
     }
 
-    public void setDeveloperHoursWork(int developerHoursWork) {
-        this.developerHoursWork = developerHoursWork;
+    public void setNumberOfCountries(int numberOfCountries) {
+        this.numberOfCountries = numberOfCountries;
     }
 
-    public int getNumberOfReleases() {
-        return numberOfReleases;
+    public int getSemanticClosenessAvg() {
+        return semanticClosenessAvg;
     }
 
-    public void setNumberOfReleases(int numberOfReleases) {
-        this.numberOfReleases = numberOfReleases;
+    public void setSemanticClosenessAvg(int semanticClosenessAvg) {
+        this.semanticClosenessAvg = semanticClosenessAvg;
     }
 
-    public boolean isActiveDeveloper() {
-        return activeDeveloper;
+    public int getNumberOfNodeTypes() {
+        return numberOfNodeTypes;
     }
 
-    public void setActiveDeveloper(boolean activeDeveloper) {
-        this.activeDeveloper = activeDeveloper;
+    public void setNumberOfNodeTypes(int numberOfNodeTypes) {
+        this.numberOfNodeTypes = numberOfNodeTypes;
     }
 
     public int getTimeWorkTogether() {
@@ -87,241 +62,29 @@ public class PlatformModel {
         this.timeWorkTogether = timeWorkTogether;
     }
 
-    public String getNameNode1() {
-        return nameNode1;
+    public int getNumberOfNewMembers() {
+        return numberOfNewMembers;
     }
 
-    public void setNameNode1(String nameNode1) {
-        this.nameNode1 = nameNode1;
+    public void setNumberOfNewMembers(int numberOfNewMembers) {
+        this.numberOfNewMembers = numberOfNewMembers;
     }
 
-    public String getNameNode2() {
-        return nameNode2;
+    public int getDeveloperCommits() {
+        return developerCommits;
     }
 
-    public void setNameNode2(String nameNode2) {
-        this.nameNode2 = nameNode2;
-    }
-    private String haveDocumentation;
-
-    public String getNameSupport1() {
-        return nameSupport1;
+    public void setDeveloperCommits(int developerCommits) {
+        this.developerCommits = developerCommits;
     }
 
-    public void setNameSupport1(String nameSupport1) {
-        this.nameSupport1 = nameSupport1;
+    public int getNumberOfHoursWorked() {
+        return numberOfHoursWorked;
     }
 
-    public String getNameSupport2() {
-        return nameSupport2;
+    public void setNumberOfHoursWorked(int numberOfHoursWorked) {
+        this.numberOfHoursWorked = numberOfHoursWorked;
     }
-
-    public void setNameSupport2(String nameSupport2) {
-        this.nameSupport2 = nameSupport2;
-    }
-
-    public String getSupportNaturalLanguages() {
-        return supportNaturalLanguages;
-    }
-
-    public void setSupportNaturalLanguages(String supportNaturalLanguages) {
-        this.supportNaturalLanguages = supportNaturalLanguages;
-    }
-
-    public String getNameDevTech1() {
-        return nameDevTech1;
-    }
-
-    public void setNameDevTech1(String nameDevTech1) {
-        this.nameDevTech1 = nameDevTech1;
-    }
-
-    public String getNameDevTech2() {
-        return nameDevTech2;
-    }
-
-    public void setNameDevTech2(String nameDevTech2) {
-        this.nameDevTech2 = nameDevTech2;
-    }
-
-    public String getHaveDocumentation() {
-        return haveDocumentation;
-    }
-
-    public void setHaveDocumentation(String haveDocumentation) {
-        this.haveDocumentation = haveDocumentation;
-    }
-    
-
-    public String getNameHardwareSupport1() {
-        return nameHardwareSupport1;
-    }
-
-    public void setNameHardwareSupport1(String nameHardwareSupport1) {
-        this.nameHardwareSupport1 = nameHardwareSupport1;
-    }
-
-    public String getNameHardwareSupport2() {
-        return nameHardwareSupport2;
-    }
-
-    public void setNameHardwareSupport2(String nameHardwareSupport2) {
-        this.nameHardwareSupport2 = nameHardwareSupport2;
-    }
-
-    public int getNumberOfUsersGroups() {
-        return numberOfUsersGroups;
-    }
-
-    public void setNumberOfUsersGroups(int numberOfUsersGroups) {
-        this.numberOfUsersGroups = numberOfUsersGroups;
-    }
-
-    public String getNameDeveloper1() {
-        return nameDeveloper1;
-    }
-
-    public void setNameDeveloper1(String nameDeveloper1) {
-        this.nameDeveloper1 = nameDeveloper1;
-    }
-
-    public String getNameDeveloper2() {
-        return nameDeveloper2;
-    }
-
-    public void setNameDeveloper2(String nameDeveloper2) {
-        this.nameDeveloper2 = nameDeveloper2;
-    }
-
-    public String getTechName1() {
-        return techName1;
-    }
-
-    public void setTechName1(String techName1) {
-        this.techName1 = techName1;
-    }
-
-    public String getTechName2() {
-        return techName2;
-    }
-
-    public void setTechName2(String techName2) {
-        this.techName2 = techName2;
-    }
-
-    public String getPlanForCollapse() {
-        return planForCollapse;
-    }
-
-    public void setPlanForCollapse(String planForCollapse) {
-        this.planForCollapse = planForCollapse;
-    }
-    
-
-    public String getEventName() {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
-    public String getOccurredDate() {
-        return occurredDate;
-    }
-
-    public void setOccurredDate(String occurredDate) {
-        this.occurredDate = occurredDate;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getKLOC() {
-        return KLOC;
-    }
-
-    public void setKLOC(int KLOC) {
-        this.KLOC = KLOC;
-    }
-
-    public String getFileName() {
-        return fileName;
-    }
-
-    public void setFileName(String fileName) {
-        this.fileName = fileName;
-    }
-
-    public String getCreationData() {
-        return creationData;
-    }
-
-    public void setCreationData(String creationData) {
-        this.creationData = creationData;
-    }
-
-    public int getNumMessages() {
-        return numMessages;
-    }
-
-    public void setNumMessages(int numMessages) {
-        this.numMessages = numMessages;
-    }
-
-    public String getProjectName() {
-        return projectName;
-    }
-
-    public void setProjectName(String projectName) {
-        this.projectName = projectName;
-    }
-
-    public String getStarData() {
-        return starData;
-    }
-
-    public void setStarData(String starData) {
-        this.starData = starData;
-    }
-
-    public int getBugFixTime() {
-        return bugFixTime;
-    }
-
-    public void setBugFixTime(int bugFixTime) {
-        this.bugFixTime = bugFixTime;
-    }
-
-    public int getNumberOfUser() {
-        return numberOfUser;
-    }
-
-    public void setNumberOfUser(int numberOfUser) {
-        this.numberOfUser = numberOfUser;
-    }
-
-    public int getAverageTimeUse() {
-        return averageTimeUse;
-    }
-
-    public void setAverageTimeUse(int averageTimeUse) {
-        this.averageTimeUse = averageTimeUse;
-    }
-
-    public String getNewMemberName() {
-        return newMemberName;
-    }
-
-    public void setNewMemberName(String newMemberName) {
-        this.newMemberName = newMemberName;
-    }
-    
     
     
     

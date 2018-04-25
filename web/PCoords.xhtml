@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>TODO supply a title</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="pcoords.css"></link>  
+    </head>
+    <body>
+        <div> </div>
+        <div id="chart-pcoords"></div>
+        
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="d3.v3.min.js"></script>
+        <script type="text/javascript" src="pcoords.js"></script>
+        <script type="text/javascript" src="example-utils.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[       
+        // Mount RANDOM data to use in EXAMPLE
+            data = [];
+            for(i = 0; i < 30; i++){
+
+                dataObject = {
+                    "country": getRandomName("country"),
+                    "date": formatDate(getRandomDate(new Date(2017, 0, 1), new Date()) ),
+                    "approved": getRandomInt(1, 2) == 1 ? "Yes" : "No",
+                    "documentation": getRandomInt(1, 10),
+                    "ease_of_use": getRandomInt(1, 10),
+                    "reliability": getRandomInt(1, 10),
+                    "performance": getRandomInt(1, 10),
+                    "availability": getRandomInt(1, 10)
+                };
+
+                data.push(dataObject);
+            }
+
+            // Create Parallel Coordinates Chart Component
+            var pcoords = new ParallelCoordinatesChart({
+                "target": "#chart-pcoords",
+                "data": data,
+                "height": 500, // Optional attribute. Defaults for 250 if omitted.
+                "columns": [
+                    {
+                        key: "country",
+                        description: "Country",
+                        type: "String" // Possible types: String, Number.
+                    },{
+                        key: "date",
+                        description: "Date",
+                        type: "String"
+                    }, {
+                        key: "approved",
+                        description: "Approved?",
+                        type: "String"
+                    }, {
+                        key: "documentation",
+                        description: "Documentation",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    }, {
+                        key: "ease_of_use",
+                        description: "Ease of Use",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    }, {
+                        key: "reliability",
+                        description: "Reliability",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    }, {
+                        key: "performance",
+                        description: "Performance",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    }, {
+                        key: "availability",
+                        description: "Availability",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    }
+                ]
+            });
+
+            // Render Chart
+            pcoords.render();
+        //]]>
+        </script>
+       
+    </body>
+</html>

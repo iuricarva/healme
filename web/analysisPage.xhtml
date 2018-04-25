@@ -9,6 +9,7 @@
         <h:head>
             <f:facet name="first">
                 <meta content='text/html; charset=UTF-8' http-equiv="Content-Type"/>
+                <link rel="stylesheet" href="pcoords.css"></link>  
                 <title>HEAL-ME</title>
             </f:facet>
         </h:head>
@@ -31,108 +32,134 @@
                             </p:submenu>
                 </p:menu>
             </div>
-            
-            <div style="overflow-y: auto; position: relative; float: left; width: 82.6%;  border: solid; border-width: 1px; border-color: lightgray; height: 675px">                                     
-                <h1 align="center"> Overview: </h1>
-                    <hr/>
-                    <br/>
-                    <br/>
-                <div style="padding: 10px">        
-                    Platform: <h:outputText id="nome" value="#{consultaCert.namePlatform}"> </h:outputText>
-                    <br/>
-                    <br/>
-<!--Sustentabilidade-->
-                    <h2>Sustainability Analisis</h2>
-                    <br/>
-                    <hr/>
-                    <h4>Heterogeinity</h4>
-                    <br/>
-                    Result of heterogeneity analysis: <h:outputText id="heterogeneity" rendered="#{consultaCert.retornaHet != null}" value="Defined."> </h:outputText>
-                    <br/>
-                    <p:progressBar id="hetBar" styleClass="animated" global="false" ajax="true" value="20" labelTemplate="{value}%" displayOnly="false"/>
-                    <br/>
-                    <br/>
-                    <hr/>
-                    <h4>Regeneration Ability</h4>
-                    <br/>
-                    Result of Regeneration Ability analysis: <h:outputText id="RegAb" rendered="#{consultaCert.retornaRegAb != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="regAbBar" styleClass="animated" global="false" ajax="true" value="40" labelTemplate="{value}%" displayOnly="false"/>        
-                    <br/>
-                    <br/>
-                    <hr/>
-                    <h4>Effort Balance</h4>
-                    <br/>
-                    Result of Effort Balance analysis: <h:outputText id="effBal" rendered="#{consultaCert.retornaEfBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="effBalBar" styleClass="animated" global="false" ajax="true" value="60" labelTemplate="{value}%" displayOnly="false"/>
-                    <br/>
-                    <hr/>
-                    <h4>Expertise Balance</h4>
-                    Result of Expertise Balance analysis: <h:outputText id="expBal" rendered="#{consultaCert.retornaExpBal != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="expBalBar" styleClass="animated" global="false" ajax="true" value="80" labelTemplate="{value}%" displayOnly="false"/>
-                    <hr/>
-                    <h4>Visivility</h4>
-                    Result of Visivility analysis: <h:outputText id="vis" rendered="#{consultaCert.retornaVisib != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="VisBar" styleClass="animated" global="false" ajax="true" value="100" labelTemplate="{value}%" displayOnly="false"/>
-                    <br/>
-                    <hr/>
-                    <h3>General Sustainability Overview:</h3>
-                    Result of Sustainability analysis: <h:outputText id="sust" rendered="#{consultaCert.loadSustainability != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar1" style="color: lightblue" value="20" labelTemplate="{value}%" displayOnly="true"/>
-                    <hr/>
-<!--Diversidade-->
-                    <h2>Diversity Analisis</h2>
-                    <br/>
-                     Result of Diversity analysis: <h:outputText id="div" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="divBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <br/>
-                    <h3>General Diversity Overview:</h3>
-                    Result of General Diversity analysis: <h:outputText id="generalDiv" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar2" style="color: lightblue" value="40" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <hr/>
-<!--Produtividade-->
-                    <h2>Productivity Analisis</h2>
-                    <br/>
-                    Result of Productivity analysis: <h:outputText id="produc" rendered="#{consultaCert.retornaProductivity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="prodBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <br/>
-                    <h3>General Productivity Overview:</h3>
-                    Result of General Productivity analysis: <h:outputText id="generalProd" rendered="#{consultaCert.retornaProductivity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar3" style="color: lightblue" value="60" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <hr/>
-<!--Robustez-->
-                    <h2>Robustness Analisis</h2>
-                    <br/>
-                     Result of Robustness analysis: <h:outputText id="rob" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="robBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <br/>
-                    <h3>General Robustness Overview:</h3>
-                    Result of General Robustness analysis: <h:outputText id="generalRob" rendered="#{consultaCert != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar4" style="color: lightblue" value="80" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <hr/>
-<!--Criação de Nicho-->
-                    <h2>Niche Creation Analisis</h2>
-                    <br/>
-                    Niche Creation Analisis: <h:outputText id="ncAnalisis" rendered="#{consultaCert.retornaNicheCreation != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="ncBar" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <br/>
-                    <h3>General Niche Creation Overview:</h3>
-                    Result of General Niche Creation analysis: <h:outputText id="generalDiv" rendered="#{consultaCert.retornaDiversity != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar5" style="color: lightblue" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                    <br/>
-                    <hr/>
- <!--Panorama Geral-->
-                    <h2>General Health Overview:</h2>
-                    Health <h:outputText id="genHealth" rendered="#{consultaCert.retornaHeatlh != null}" value="Defined."> </h:outputText>
-                    <p:progressBar id="healthBar6" style="color: lightblue" value="100" labelTemplate="{value}%" displayOnly="true"/>
-                </div>    
-            </div>        
+             <div id="chart-pcoords"></div>
+        
+        <script type="text/javascript" src="jquery.min.js"></script>
+        <script type="text/javascript" src="d3.v3.min.js"></script>
+        <script type="text/javascript" src="pcoords.js"></script>
+        <script type="text/javascript" src="example-utils.js"></script>
+        <script type="text/javascript">
+        //<![CDATA[       
+        // Mount RANDOM data to use in EXAMPLE
+            data = [];
+           //for(i = 0; i < 30; i++){
+
+                dataObject = {
+                    "platform": "#{consultaCert.namePlatform}",
+                    "heterogeinity": "#{consultaCert.retornaHet != null}" ? "Yes" : "No",
+                    "regenerationability": "#{consultaCert.retornaRegAb != null}" ? "Yes" : "No",
+                    "effortbalance": "#{consultaCert.retornaEfBal != null}" ? "Yes" : "No",
+                    "expertisebalance": "#{consultaCert.retornaExpBal != null}" ? "Yes" : "No",
+                    "visivility": "#{consultaCert.retornaVisib != null}" ? "Yes" : "No",
+                    "sustainability": "#{consultaCert.retornaSust != null}" ? "Yes" : "No",
+                    "numberofcountries": "#{consultaCert.data.numberOfCountries}",
+                    "developerCommits": "#{consultaCert.data.developerCommits}",
+                    "numberOfHoursWorked": "#{consultaCert.data.numberOfHoursWorked}",
+                    "numberOfNewMembers": "#{consultaCert.data.numberOfNewMembers}",
+                    "numberOfNodeTypes": "#{consultaCert.data.numberOfNodeTypes}",
+                    "semanticClosenessAvg": "#{consultaCert.data.semanticClosenessAvg}",
+                    "timeWorkTogether": "#{consultaCert.data.timeWorkTogether}"
+                };
+
+                data.push(dataObject);
+           // }
+
+            // Create Parallel Coordinates Chart Component
+            var pcoords = new ParallelCoordinatesChart({
+                "target": "#chart-pcoords",
+                "data": data,
+                "height": 500, // Optional attribute. Defaults for 250 if omitted.
+                "columns": [
+                    {
+                        key: "platform",
+                        description: "Platform",
+                        type: "String" // Possible types: String, Number.
+                    },{
+                        key: "numberofcountries",
+                        description: "Number Of Countries",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 10]
+                        }
+                    },{
+                        key: "developerCommits",
+                        description: "Number of Commits",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "numberOfHoursWorked",
+                        description: "Number of Hours Worked",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "numberOfNewMembers",
+                        description: "Number Of New Members",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "numberOfNodeTypes",
+                        description: "Number Of Node Types",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "semanticClosenessAvg",
+                        description: "semantic Closeness Average",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "timeWorkTogether",
+                        description: "Working Time Set",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    }, {
+                        key: "heterogeinity",
+                        description: "Heterogeinity",
+                        type: "String"
+                    }, {
+                        key: "regenerationability",
+                        description: "Regeneration Ability",
+                        type: "String"
+                    },
+                     {
+                        key: "effortbalance",
+                        description: "Effort Balance",
+                        type: "String"
+                    },
+                     {
+                        key: "expertisebalance",
+                        description: "Expertise Balance",
+                        type: "String"
+                    },
+                     {
+                        key: "visivility",
+                        description: "Visivility",
+                        type: "String"
+                    },
+                     {
+                        key: "sustainability",
+                        description: "Sustainability",
+                        type: "String"
+                    }
+                  
+                ]
+            });
+
+            // Render Chart
+            pcoords.render();
+        //]]>
+        </script>
         </h:body>
 
     </f:view>

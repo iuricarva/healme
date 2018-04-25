@@ -35,15 +35,7 @@ public class ConsultaCert {
     private ArrayList<PlatformModel> loadSustainability = new ArrayList<PlatformModel>();
     private ArrayList<PlatformModel> loadHealth = new ArrayList<PlatformModel>();
     private final List<String> platforms = new ArrayList<String>();
-    private int heterogeneity = 0;
-
-    public int getHeterogeneity() {
-        return heterogeneity;
-    }
-
-    public void setHeterogeneity(int heterogeneity) {
-        this.heterogeneity = heterogeneity;
-    }
+   
     
     private String[] namePlatforms; 
 
@@ -143,10 +135,6 @@ public class ConsultaCert {
                 this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());                                          
                                 
                 if(this.getNamePlatform().equals(this.model.getName())){
-                    this.heterogeneity = 20;
-                    modelSust = this.model;
-                    this.loadHealth.add(modelSust);
-                    this.heterogeneity = 20;
                     return this.model;
                 }else{
                     return null;
@@ -605,7 +593,7 @@ public class ConsultaCert {
                 builder = factory.newDocumentBuilder();  
                 Document document = builder.parse( new InputSource( new StringReader( output ) ) );
                 NodeList nodes = document.getElementsByTagName("name");
-                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());                                          
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());
                                 
                 if(this.getNamePlatform().equals(this.model.getName())){
                     this.loadSustainability.add(model);
@@ -633,11 +621,77 @@ public class ConsultaCert {
         return null;
     }
     
+     public PlatformModel getData() throws ParserConfigurationException, SAXException{
+       try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdata");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            this.model = new PlatformModel();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                String teste;
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
+                nodes = document.getElementsByTagName("numberOfCountries");
+                this.model.setNumberOfCountries(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                
+                nodes = document.getElementsByTagName("developerCommits");
+                this.model.setDeveloperCommits(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfHoursWorked");
+                this.model.setNumberOfHoursWorked(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfNewMembers");
+                this.model.setNumberOfNewMembers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfNodeTypes");
+                this.model.setNumberOfNodeTypes(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("semanticClosenessAvg");
+                this.model.setSemanticClosenessAvg(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("timeWorkTogether");
+                this.model.setTimeWorkTogether(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                                
+                if(this.getNamePlatform().equals(this.model.getName())){
+                    return this.model;
+                }else{
+                    return null;
+                }
+                      
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
+    
     public static void main(String[] args) throws ParserConfigurationException, SAXException {
         ConsultaCert c = new ConsultaCert();
         //c.setNamePlatform("Android");
         //c.getRetornaHet();
         c.getPlatforms();
+        c.getData();
         //c.getRetornaDiversity();
         //int i = c.getCarregamento();
         //System.out.println(c.getCarregamento());
