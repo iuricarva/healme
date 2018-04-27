@@ -52,13 +52,11 @@
                     "expertisebalance": "#{consultaCert.retornaExpBal != null}" ? "Yes" : "No",
                     "visivility": "#{consultaCert.retornaVisib != null}" ? "Yes" : "No",
                     "sustainability": "#{consultaCert.retornaSust != null}" ? "Yes" : "No",
-                    "numberofcountries": "#{consultaCert.data.numberOfCountries}",
-                    "developerCommits": "#{consultaCert.data.developerCommits}",
-                    "numberOfHoursWorked": "#{consultaCert.data.numberOfHoursWorked}",
-                    "numberOfNewMembers": "#{consultaCert.data.numberOfNewMembers}",
-                    "numberOfNodeTypes": "#{consultaCert.data.numberOfNodeTypes}",
-                    "semanticClosenessAvg": "#{consultaCert.data.semanticClosenessAvg}",
-                    "timeWorkTogether": "#{consultaCert.data.timeWorkTogether}"
+                    "numberofcountries": "#{consultaCert.dataHet.numberOfCountries}",
+                    "numberOfNodeTypes": "#{consultaCert.dataHet.numberOfNodeTypes}",
+                    "semanticClosenessAvg": "#{consultaCert.dataHet.semanticClosenessAvg}",
+                    "numberOfNewMembers": "#{consultaCert.dataRegAb.numberOfNewMembers}",
+                    "timeWorkTogether": "#{consultaCert.dataRegAb.timeWorkTogether}"
                 };
 
                 data.push(dataObject);
@@ -79,8 +77,44 @@
                         description: "Number Of Countries",
                         type: "Number",
                         type_options: {
-                            domain: [0, 10]
+                            domain: [0, 100]
                         }
+                    },{
+                        key: "semanticClosenessAvg",
+                        description: "semantic Closeness Average",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "numberOfNodeTypes",
+                        description: "Number Of Node Types",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    }, {
+                        key: "heterogeinity",
+                        description: "Heterogeinity",
+                        type: "String"
+                    },{
+                        key: "timeWorkTogether",
+                        description: "Working Time Set",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "numberOfNewMembers",
+                        description: "Number Of New Members",
+                        type: "Number",
+                        type_options: {
+                            domain: [0, 1000]
+                        }
+                    },{
+                        key: "regenerationability",
+                        description: "Regeneration Ability",
+                        type: "String",
                     },{
                         key: "developerCommits",
                         description: "Number of Commits",
@@ -96,48 +130,17 @@
                             domain: [0, 1000]
                         }
                     },{
-                        key: "numberOfNewMembers",
-                        description: "Number Of New Members",
-                        type: "Number",
-                        type_options: {
-                            domain: [0, 1000]
-                        }
-                    },{
-                        key: "numberOfNodeTypes",
-                        description: "Number Of Node Types",
-                        type: "Number",
-                        type_options: {
-                            domain: [0, 1000]
-                        }
-                    },{
-                        key: "semanticClosenessAvg",
-                        description: "semantic Closeness Average",
-                        type: "Number",
-                        type_options: {
-                            domain: [0, 1000]
-                        }
-                    },{
-                        key: "timeWorkTogether",
-                        description: "Working Time Set",
-                        type: "Number",
-                        type_options: {
-                            domain: [0, 1000]
-                        }
-                    }, {
-                        key: "heterogeinity",
-                        description: "Heterogeinity",
-                        type: "String"
-                    }, {
                         key: "regenerationability",
                         description: "Regeneration Ability",
-                        type: "String"
-                    },
-                     {
+                        type: "String",
+                        type_options: {
+                            domain: ["Yes", "No"]
+                        }
+                    },{
                         key: "effortbalance",
                         description: "Effort Balance",
                         type: "String"
-                    },
-                     {
+                    },{
                         key: "expertisebalance",
                         description: "Expertise Balance",
                         type: "String"

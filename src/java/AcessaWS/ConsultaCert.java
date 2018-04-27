@@ -621,9 +621,9 @@ public class ConsultaCert {
         return null;
     }
     
-     public PlatformModel getData() throws ParserConfigurationException, SAXException{
+    public PlatformModel getDataHet() throws ParserConfigurationException, SAXException{
        try {    
-            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdata");
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdatahet");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
             conn.setRequestProperty("Accept", "application/xml");
@@ -648,19 +648,254 @@ public class ConsultaCert {
                 this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
                 nodes = document.getElementsByTagName("numberOfCountries");
                 this.model.setNumberOfCountries(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
-                
-                nodes = document.getElementsByTagName("developerCommits");
-                this.model.setDeveloperCommits(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
-                nodes = document.getElementsByTagName("numberOfHoursWorked");
-                this.model.setNumberOfHoursWorked(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
-                nodes = document.getElementsByTagName("numberOfNewMembers");
-                this.model.setNumberOfNewMembers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
                 nodes = document.getElementsByTagName("numberOfNodeTypes");
                 this.model.setNumberOfNodeTypes(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
                 nodes = document.getElementsByTagName("semanticClosenessAvg");
                 this.model.setSemanticClosenessAvg(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                                
+                if(this.getNamePlatform().equals(this.model.getName())){
+                    return this.model;
+                }else{
+                    return null;
+                }
+                      
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
+     
+    public PlatformModel getDataRegAb() throws ParserConfigurationException, SAXException{
+       try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdataregab");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            this.model = new PlatformModel();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                String teste;
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
                 nodes = document.getElementsByTagName("timeWorkTogether");
                 this.model.setTimeWorkTogether(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfNewMembers");
+                this.model.setNumberOfNewMembers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+
+
+                                
+                if(this.getNamePlatform().equals(this.model.getName())){
+                    return this.model;
+                }else{
+                    return null;
+                }
+                      
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
+    
+    public PlatformModel getDataEffBal() throws ParserConfigurationException, SAXException{
+       try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdataeffbal");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            this.model = new PlatformModel();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                String teste;
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
+                nodes = document.getElementsByTagName("developerCommits");
+                this.model.setDeveloperCommits(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfHoursWorked");
+                this.model.setNumberOfHoursWorked(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("activeMembers");
+                this.model.setActiveMembers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfCommunits");
+                this.model.setNumberOfCommunits(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfReleases");
+                this.model.setNumberOfReleases(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("totalEffor");
+                this.model.setTotalEffor(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                                
+                if(this.getNamePlatform().equals(this.model.getName())){
+                    return this.model;
+                }else{
+                    return null;
+                }
+                      
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
+    
+     public PlatformModel getDataExBal() throws ParserConfigurationException, SAXException{
+       try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdataexbal");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            this.model = new PlatformModel();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                String teste;
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
+                nodes = document.getElementsByTagName("numberOfModifiedFiles");
+                this.model.setNumberOfModifiedFiles(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberModifiedFileTypes");
+                this.model.setNumberModifiedFileTypes(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfEventParticipants");
+                this.model.setNumberOfEventParticipants(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+
+
+                                
+                if(this.getNamePlatform().equals(this.model.getName())){
+                    return this.model;
+                }else{
+                    return null;
+                }
+                      
+        } catch (Exception e) {  
+                e.printStackTrace();
+            } 
+            
+        } catch (MalformedURLException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	  } catch (IOException e) {
+
+		e.printStackTrace();
+                //return e.getMessage();
+
+	}
+        return null;
+    }
+     
+     public PlatformModel getDataVis() throws ParserConfigurationException, SAXException{
+       try {    
+            URL url = new URL("http://localhost:8080/WSHealMe/webresources/WSSecoRestful/getdatavis");
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/xml");
+            BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
+            String output = "", captura;
+            captura = br.readLine();
+            while (captura != null) {
+		output+=captura;
+                output+="\n";
+                captura = br.readLine();
+            }
+
+            conn.disconnect();
+            this.model = new PlatformModel();
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();  
+            DocumentBuilder builder;  
+            try{
+                String teste;
+                builder = factory.newDocumentBuilder();  
+                Document document = builder.parse( new InputSource( new StringReader( output ) ) );
+                NodeList nodes = document.getElementsByTagName("name");
+                this.model.setName(nodes.item(0).getChildNodes().item(0).getNodeValue());  
+                nodes = document.getElementsByTagName("numberOfEventProjectParticipants ");
+                this.model.setNumberOfEventProjectParticipants(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfJobAdvertisements");
+                this.model.setNumberOfJobAdvertisements(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfDownloads");
+                this.model.setNumberOfDownloads(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfMailingListMembers");
+                this.model.setNumberOfMailingListMembers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfPassiveUsers");
+                this.model.setNumberOfPassiveUsers(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfReaders");
+                this.model.setNumberOfReaders(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                 nodes = document.getElementsByTagName("numberOfScientificPublication");
+                this.model.setNumberOfScientificPublication(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfSocialMediaHits");
+                this.model.setNumberOfSocialMediaHits(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
+                nodes = document.getElementsByTagName("numberOfWebPageRequests");
+                this.model.setNumberOfWebPageRequests(Integer.parseInt(nodes.item(0).getChildNodes().item(0).getNodeValue()));
                                 
                 if(this.getNamePlatform().equals(this.model.getName())){
                     return this.model;
@@ -691,7 +926,7 @@ public class ConsultaCert {
         //c.setNamePlatform("Android");
         //c.getRetornaHet();
         c.getPlatforms();
-        c.getData();
+        c.getDataHet();
         //c.getRetornaDiversity();
         //int i = c.getCarregamento();
         //System.out.println(c.getCarregamento());
